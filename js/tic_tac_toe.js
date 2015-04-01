@@ -1,1 +1,3 @@
-// Your code here
+$('.board').on('click', '.square', function(){
+  alert('Hello World!');
+});
