@@ -32,7 +32,27 @@ $('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
   var indexOfSquare = $('.board .square').index($square);
   var currentPlayerSquares = chosenSquares[currentPlayerToken]
   currentPlayerSquares.push(indexOfSquare);
-  console.log(chosenSquares);
+
+  // Check for win
+  //
+  // For each winning combination
+  $.each(winningCombinations, function(index, combination) {
+    // Stary by assuming that the player has all of the squares
+    var hasAllSquares = true;
+
+    // For each of squares in the combination
+    $.each(combination, function(index, square) {
+      // If the player's chosen squares does not contain the current square
+      if ($.inArray(square, currentPlayerSquares) === -1) {
+        hasAllSquares = false;
+      }
+    });
+
+    // Display the winner
+    if (hasAllSquares) {
+      alert(currentPlayerToken + ' wins!');
+    }
+  });
 
   // Swap current player's token
   if (currentPlayerToken === 'x') {
