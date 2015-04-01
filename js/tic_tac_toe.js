@@ -1,3 +1,4 @@
 $('.board').on('click', '.square', function(){
-  alert('Hello World!');
+  // Select the square
+  var $square = $(event.currentTarget);
 });
