@@ -1,7 +1,7 @@
 // Initialize current player as player 'x'
 var currentPlayerToken = 'x';
 
-$('.board').on('click', '.square', function(event) {
+$('.board').on('click', ".square:not('.square-x, .square-o')", function(event) {
   // Select the square
   var $square = $(event.currentTarget);
   $square.addClass('square-' + currentPlayerToken);
